@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Pokemon = ({ pokemon }) => {
+const Pokemon = ({ pokemon, onSelect }) => {
   return (
-    <div className="pokemon-card">
+    <div className="pokemon-card" onClick={() => onSelect(pokemon)}>
       <h2>{pokemon.name}</h2>
       <img src={pokemon.imageUrl} alt={pokemon.name} />
       <p>Type: {pokemon.type.join(', ')}</p>

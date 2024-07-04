@@ -15,8 +15,37 @@
   margin: 8px;
   width: 200px;
   text-align: left;
+  cursor: pointer;
 }
 
 .filter-dropdown, .search-bar {
   margin-bottom: 20px;
+}
+
+.pokedex-display {
+  position: relative;
+  display: inline-block;
+  margin: 20px;
+}
+
+.pokedex-image {
+  width: 300px;
+  height: auto;
+}
+
+.pokedex-image-container {
+  position: absolute;
+  top: 30%;
+  left: 12%;
+  width: 30%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemon-image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
 }

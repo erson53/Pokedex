@@ -3,6 +3,7 @@ import { getPokemon } from '../utils/api';
 import Pokemon from './Pokemon';
 import FilterDropdown from './FilterDropdown';
 import SearchBar from './SearchBar';
+import PokedexDisplay from './PokedexDisplay';
 
 const Pokedex = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -10,6 +11,7 @@ const Pokedex = () => {
   const [loading, setLoading] = useState(true);
   const [selectedType, setSelectedType] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -46,9 +48,10 @@ const Pokedex = () => {
       <h1>Pokedex</h1>
       <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
       <FilterDropdown types={uniqueTypes} selectedType={selectedType} onSelectType={setSelectedType} />
+      <PokedexDisplay pokemon={selectedPokemon} />
       <div className="pokemon-list">
         {filteredPokemonList.map(pokemon => (
-          <Pokemon key={pokemon.id} pokemon={pokemon} />
+          <Pokemon key={pokemon.id} pokemon={pokemon} onSelect={setSelectedPokemon} />
         ))}
       </div>
     </div>
