@@ -70,3 +70,41 @@
   display: inline-block;
   width: 300px;
 }
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Hinzugefügt, um Platz für den Inhalt zu schaffen */
+}
+
+.modal-content {
+  background: #BF1E2E;
+  padding: 30px;
+  border-radius: 8px;
+  position: relative;
+  max-width: 90%;
+  width: 600px;
+  box-sizing: border-box;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+video {
+  width: 100%;
+  height: auto;
+}

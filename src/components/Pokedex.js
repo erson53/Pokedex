@@ -4,6 +4,7 @@ import Pokemon from './Pokemon';
 import FilterDropdown from './FilterDropdown';
 import SearchBar from './SearchBar';
 import PokedexDisplay from './PokedexDisplay';
+import VideoModal from './VideoModal';
 
 const Pokedex = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -12,6 +13,7 @@ const Pokedex = () => {
   const [selectedType, setSelectedType] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchPokemon = async () => {
@@ -46,6 +48,7 @@ const Pokedex = () => {
   return (
     <div>
       <h1>Pokedex</h1>
+      <button onClick={() => setIsModalOpen(true)}>Watch Video</button>
       <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
       <FilterDropdown types={uniqueTypes} selectedType={selectedType} onSelectType={setSelectedType} />
       <PokedexDisplay pokemon={selectedPokemon} />
@@ -63,6 +66,7 @@ const Pokedex = () => {
           <Pokemon key={pokemon.id} pokemon={pokemon} onSelect={setSelectedPokemon} />
         ))}
       </div>
+      <VideoModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} videoSrc={require('../assets/video.mp4').default} />
     </div>
   );
 };
