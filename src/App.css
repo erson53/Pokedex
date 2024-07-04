@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: 'VT323', monospace;
 }
 
 .App {
@@ -15,21 +16,43 @@
   align-items: center;
 }
 
+.button {
+  background-color: transparent;
+  border: 1.5px solid black;
+  color: black;
+  padding: 8px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
 .pokemon-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+.pokemon-button-container {
+  text-align: center;
+}
+
 .pokemon-card {
   background-color: rgba(255, 255, 255, 0.8);
-  border: 3px solid #000;
+  border: 1.5px solid #000;
   border-radius: 8px;
   padding: 16px;
   margin: 8px;
   width: 200px;
   text-align: left;
   cursor: pointer;
+}
+
+#search-input, #type-select {
+  width: 18rem;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-top: 8px;
 }
 
 .filter-dropdown, .search-bar {
@@ -65,10 +88,9 @@
 }
 
 .pokemon-details {
-  margin-top: 20px;
+  padding-bottom: 5rem;
   text-align: left;
   display: inline-block;
-  width: 300px;
 }
 
 .modal-overlay {

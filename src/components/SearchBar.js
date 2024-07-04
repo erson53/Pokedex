@@ -3,7 +3,8 @@ import React from 'react';
 const SearchBar = ({ searchTerm, onSearch }) => {
   return (
     <div className="search-bar">
-      <label htmlFor="search-input">Search Pokémon:</label>
+        <div>
+      <label htmlFor="search-input">Search Pokémon:</label></div>
       <input
         id="search-input"
         type="text"

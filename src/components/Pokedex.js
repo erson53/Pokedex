@@ -47,8 +47,8 @@ const Pokedex = () => {
 
   return (
     <div>
-      <h1>Pokedex</h1>
-      <button onClick={() => setIsModalOpen(true)}>Watch Video</button>
+      <h1 style={{marginTop: "15px"}}>Pokedex</h1>
+      <button className='button' onClick={() => setIsModalOpen(true)} style={{marginBottom: "15px"}}>Watch Intro</button>
       <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
       <FilterDropdown types={uniqueTypes} selectedType={selectedType} onSelectType={setSelectedType} />
       <PokedexDisplay pokemon={selectedPokemon} />
