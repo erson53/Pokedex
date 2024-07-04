@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "name": "Bulbasaur",
+      "type": ["Grass", "Poison"],
+      "base_experience": 64,
+      "height": 7,
+      "weight": 69
+    },
+    {
+      "id": 2,
+      "name": "Ivysaur",
+      "type": ["Grass", "Poison"],
+      "base_experience": 142,
+      "height": 10,
+      "weight": 130
+    }
+  ]
+  
