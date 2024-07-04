@@ -17,7 +17,6 @@
   text-align: left;
 }
 
-.filter-dropdown {
+.filter-dropdown, .search-bar {
   margin-bottom: 20px;
 }
-  
