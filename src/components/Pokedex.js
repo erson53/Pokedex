@@ -49,6 +49,15 @@ const Pokedex = () => {
       <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
       <FilterDropdown types={uniqueTypes} selectedType={selectedType} onSelectType={setSelectedType} />
       <PokedexDisplay pokemon={selectedPokemon} />
+      {selectedPokemon && (
+        <div className="pokemon-details">
+          <h2>{selectedPokemon.name}</h2>
+          <p>Type: {selectedPokemon.type.join(', ')}</p>
+          <p>Base Experience: {selectedPokemon.base_experience}</p>
+          <p>Height: {selectedPokemon.height}</p>
+          <p>Weight: {selectedPokemon.weight}</p>
+        </div>
+      )}
       <div className="pokemon-list">
         {filteredPokemonList.map(pokemon => (
           <Pokemon key={pokemon.id} pokemon={pokemon} onSelect={setSelectedPokemon} />
