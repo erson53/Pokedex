@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import calculateDamage from '../utils/battle';
+import React, { useState } from "react";
+import calculateDamage from "../utils/battle";
 
 const Battle = ({ pokemonList }) => {
   const [pokemon1, setPokemon1] = useState(null);
@@ -15,13 +15,21 @@ const Battle = ({ pokemonList }) => {
       while (hp1 > 0 && hp2 > 0) {
         const damageTo2 = calculateDamage(pokemon1, pokemon2);
         hp2 -= damageTo2;
-        log.push(`${pokemon1.name} dealt ${damageTo2} damage to ${pokemon2.name}. ${pokemon2.name} has ${hp2 > 0 ? hp2 : 0} HP left.`);
+        log.push(
+          `${pokemon1.name} dealt ${damageTo2} damage to ${pokemon2.name}. ${
+            pokemon2.name
+          } has ${hp2 > 0 ? hp2 : 0} HP left.`
+        );
 
         if (hp2 <= 0) break;
 
         const damageTo1 = calculateDamage(pokemon2, pokemon1);
         hp1 -= damageTo1;
-        log.push(`${pokemon2.name} dealt ${damageTo1} damage to ${pokemon1.name}. ${pokemon1.name} has ${hp1 > 0 ? hp1 : 0} HP left.`);
+        log.push(
+          `${pokemon2.name} dealt ${damageTo1} damage to ${pokemon1.name}. ${
+            pokemon1.name
+          } has ${hp1 > 0 ? hp1 : 0} HP left.`
+        );
       }
 
       if (hp1 <= 0) {
@@ -38,20 +46,39 @@ const Battle = ({ pokemonList }) => {
     <div>
       <h2>Battle</h2>
       <div>
-        <label>Choose Pokémon 1:</label>
-        <select onChange={(e) => setPokemon1(pokemonList.find(p => p.id === parseInt(e.target.value)))}>
+        <div>
+          <label>Choose  1:</label>
+        </div>
+        <select
+          className="button"
+          onChange={(e) =>
+            setPokemon1(
+              pokemonList.find((p) => p.id === parseInt(e.target.value))
+            )
+          }
+        >
           <option value="">Select...</option>
-          {pokemonList.map(pokemon => (
-            <option key={pokemon.id} value={pokemon.id}>{pokemon.name}</option>
+          {pokemonList.map((pokemon) => (
+            <option key={pokemon.id} value={pokemon.id}>
+              {pokemon.name}
+            </option>
           ))}
         </select>
       </div>
       <div>
         <label>Choose Pokémon 2:</label>
-        <select onChange={(e) => setPokemon2(pokemonList.find(p => p.id === parseInt(e.target.value)))}>
+        <select
+          onChange={(e) =>
+            setPokemon2(
+              pokemonList.find((p) => p.id === parseInt(e.target.value))
+            )
+          }
+        >
           <option value="">Select...</option>
-          {pokemonList.map(pokemon => (
-            <option key={pokemon.id} value={pokemon.id}>{pokemon.name}</option>
+          {pokemonList.map((pokemon) => (
+            <option key={pokemon.id} value={pokemon.id}>
+              {pokemon.name}
+            </option>
           ))}
         </select>
       </div>

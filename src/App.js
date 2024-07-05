@@ -13,10 +13,13 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Pokedex</Link>
+                <Link className='test' to="/">Pokedex</Link>
               </li>
               <li>
-                <Link to="/battle">Battle</Link>
+                <Link className='test' to="/battle">Battle</Link>
+              </li>
+              <li style={{float: "right"}}>
+                <Link className='test' to="/">Pokémon</Link>
               </li>
             </ul>
           </nav>

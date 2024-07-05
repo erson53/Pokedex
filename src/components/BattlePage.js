@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { PokemonContext } from '../context/PokemonContext';
-import calculateDamage from '../utils/battle';
+import React, { useState, useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
+import calculateDamage from "../utils/battle";
 
 const BattlePage = () => {
   const { pokemonList } = useContext(PokemonContext);
@@ -35,7 +35,11 @@ const BattlePage = () => {
         if (turn % 2 === 0) {
           const damageTo2 = calculateDamage(pokemon1, pokemon2);
           hp2 -= damageTo2;
-          log.push(`${pokemon1.name} dealt ${damageTo2} damage to ${pokemon2.name}. ${pokemon2.name} has ${hp2 > 0 ? hp2 : 0} HP left.`);
+          log.push(
+            `${pokemon1.name} dealt ${damageTo2} damage to ${pokemon2.name}. ${
+              pokemon2.name
+            } has ${hp2 > 0 ? hp2 : 0} HP left.`
+          );
           setBattleLog([...log]);
           setIsShaking2(true);
           setTimeout(() => {
@@ -46,7 +50,11 @@ const BattlePage = () => {
         } else {
           const damageTo1 = calculateDamage(pokemon2, pokemon1);
           hp1 -= damageTo1;
-          log.push(`${pokemon2.name} dealt ${damageTo1} damage to ${pokemon1.name}. ${pokemon1.name} has ${hp1 > 0 ? hp1 : 0} HP left.`);
+          log.push(
+            `${pokemon2.name} dealt ${damageTo1} damage to ${pokemon1.name}. ${
+              pokemon1.name
+            } has ${hp1 > 0 ? hp1 : 0} HP left.`
+          );
           setBattleLog([...log]);
           setIsShaking1(true);
           setTimeout(() => {
@@ -72,41 +80,74 @@ const BattlePage = () => {
 
   return (
     <div>
-      <h1>Battle</h1>
-      <div>
-        <label>Choose Pokémon 1:</label>
-        <select onChange={(e) => setPokemon1(pokemonList.find(p => p.id === parseInt(e.target.value)))}>
-          <option value="">Select...</option>
-          {pokemonList.map(pokemon => (
-            <option key={pokemon.id} value={pokemon.id}>{pokemon.name}</option>
-          ))}
-        </select>
-        {pokemon1 && (
-          <img
-            src={pokemon1.imageUrl}
-            alt={pokemon1.name}
-            className={isShaking1 ? 'shaking' : ''}
-          />
-        )}
+      <h1 style={{ marginBottom: "32px" }}>Battle</h1>
+      <div style={{ display: "flex", alignItems: "center", justifyContent:"center" }}>
+        <div style={{ display: "grid", paddingInline: "10px" }}>
+          <div>
+            <label>Choose Pokémon 1:</label>
+          </div>
+          <select
+            style={{ marginBottom: "10px" }}
+            className="button"
+            onChange={(e) =>
+              setPokemon1(
+                pokemonList.find((p) => p.id === parseInt(e.target.value))
+              )
+            }
+          >
+            <option value="">Select...</option>
+            {pokemonList.map((pokemon) => (
+              <option key={pokemon.id} value={pokemon.id}>
+                {pokemon.name}
+              </option>
+            ))}
+          </select>
+          {pokemon1 && (
+            <div style={{ marginBottom: "20px" }}>
+              <img
+                src={pokemon1.imageUrl}
+                alt={pokemon1.name}
+                className={isShaking1 ? "shaking" : ""}
+              />
+            </div>
+          )}
+        </div>
+        <h2>vs</h2>
+        <div style={{ display: "grid", paddingInline: "10px" }}>
+          <div>
+            <label>Choose Pokémon 2:</label>
+          </div>
+          <div>
+            <select
+              className="button"
+              style={{ marginBottom: "10px" }}
+              onChange={(e) =>
+                setPokemon2(
+                  pokemonList.find((p) => p.id === parseInt(e.target.value))
+                )
+              }
+            >
+              <option value="">Select...</option>
+              {pokemonList.map((pokemon) => (
+                <option key={pokemon.id} value={pokemon.id}>
+                  {pokemon.name}
+                </option>
+              ))}
+            </select>
+          </div>
+          {pokemon2 && (
+            <div style={{ marginBottom: "20px" }}>
+              <img
+                src={pokemon2.imageUrl}
+                alt={pokemon2.name}
+                className={isShaking2 ? "shaking" : ""}
+              />
+            </div>
+          )}
+        </div>
       </div>
-      <div>
-        <label>Choose Pokémon 2:</label>
-        <select onChange={(e) => setPokemon2(pokemonList.find(p => p.id === parseInt(e.target.value)))}>
-          <option value="">Select...</option>
-          {pokemonList.map(pokemon => (
-            <option key={pokemon.id} value={pokemon.id}>{pokemon.name}</option>
-          ))}
-        </select>
-        {pokemon2 && (
-          <img
-            src={pokemon2.imageUrl}
-            alt={pokemon2.name}
-            className={isShaking2 ? 'shaking' : ''}
-          />
-        )}
-      </div>
-      <button onClick={handleBattle}>Start Battle</button>
-      <button onClick={handleRestart}>Restart Battle</button>
+      <button  className="button" onClick={handleBattle}>Start Battle</button>
+      <button  className="button" onClick={handleRestart}>Restart</button>
       <div>
         {battleLog.map((log, index) => (
           <p key={index}>{log}</p>
@@ -115,7 +156,11 @@ const BattlePage = () => {
       {winner && (
         <div className="winner-section">
           <h3>{winner.name} wins!</h3>
-          <img src={winner.imageUrl} alt={winner.name} className="winner-image" />
+          <img
+            src={winner.imageUrl}
+            alt={winner.name}
+            className="winner-image"
+          />
         </div>
       )}
     </div>
