@@ -16,7 +16,11 @@ export const getPokemon = async () => {
           base_experience: pokemonDetails.data.base_experience,
           height: pokemonDetails.data.height,
           weight: pokemonDetails.data.weight,
-          imageUrl: pokemonDetails.data.sprites.front_default, // Hier wird die Bild-URL extrahiert
+          imageUrl: pokemonDetails.data.sprites.front_default,
+          hp: pokemonDetails.data.stats.find(stat => stat.stat.name === 'hp').base_stat,
+          attack: pokemonDetails.data.stats.find(stat => stat.stat.name === 'attack').base_stat,
+          defense: pokemonDetails.data.stats.find(stat => stat.stat.name === 'defense').base_stat,
+          // Fügen Sie weitere relevante Kampfstatistiken hinzu
         };
       })
     );

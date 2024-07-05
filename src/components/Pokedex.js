@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { getPokemon } from '../utils/api';
+import React, { useContext, useState, useEffect } from 'react';
+import { PokemonContext } from '../context/PokemonContext';
 import Pokemon from './Pokemon';
 import FilterDropdown from './FilterDropdown';
 import SearchBar from './SearchBar';
@@ -7,23 +7,16 @@ import PokedexDisplay from './PokedexDisplay';
 import VideoModal from './VideoModal';
 
 const Pokedex = () => {
-  const [pokemonList, setPokemonList] = useState([]);
+  const { pokemonList, loading } = useContext(PokemonContext);
   const [filteredPokemonList, setFilteredPokemonList] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [selectedType, setSelectedType] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPokemon, setSelectedPokemon] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    const fetchPokemon = async () => {
-      const data = await getPokemon();
-      setPokemonList(data);
-      setFilteredPokemonList(data);
-      setLoading(false);
-    };
-    fetchPokemon();
-  }, []);
+    setFilteredPokemonList(pokemonList);
+  }, [pokemonList]);
 
   useEffect(() => {
     let filteredList = pokemonList;
@@ -47,8 +40,8 @@ const Pokedex = () => {
 
   return (
     <div>
-      <h1 style={{marginTop: "15px"}}>Pokedex</h1>
-      <button className='button' onClick={() => setIsModalOpen(true)} style={{marginBottom: "15px"}}>Watch Intro</button>
+      <h1>Pokedex</h1>
+      <button className="video-button" onClick={() => setIsModalOpen(true)}>Watch Video</button>
       <SearchBar searchTerm={searchTerm} onSearch={setSearchTerm} />
       <FilterDropdown types={uniqueTypes} selectedType={selectedType} onSelectType={setSelectedType} />
       <PokedexDisplay pokemon={selectedPokemon} />
