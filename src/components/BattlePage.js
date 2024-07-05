@@ -9,6 +9,7 @@ const BattlePage = () => {
   const [battleLog, setBattleLog] = useState([]);
   const [isShaking1, setIsShaking1] = useState(false);
   const [isShaking2, setIsShaking2] = useState(false);
+  const [winner, setWinner] = useState(null);
 
   const handleBattle = () => {
     if (pokemon1 && pokemon2) {
@@ -16,13 +17,16 @@ const BattlePage = () => {
       let hp1 = pokemon1.hp;
       let hp2 = pokemon2.hp;
       let turn = 0;
+      setWinner(null);
 
       const battleStep = () => {
         if (hp1 <= 0 || hp2 <= 0) {
           if (hp1 <= 0) {
             log.push(`${pokemon2.name} wins!`);
+            setWinner(pokemon2);
           } else {
             log.push(`${pokemon1.name} wins!`);
+            setWinner(pokemon1);
           }
           setBattleLog([...log]);
           return;
@@ -38,7 +42,7 @@ const BattlePage = () => {
             setIsShaking2(false);
             turn++;
             battleStep();
-          }, 5000);
+          }, 3000);
         } else {
           const damageTo1 = calculateDamage(pokemon2, pokemon1);
           hp1 -= damageTo1;
@@ -49,7 +53,7 @@ const BattlePage = () => {
             setIsShaking1(false);
             turn++;
             battleStep();
-          }, 5000);
+          }, 3000);
         }
       };
 
@@ -57,9 +61,18 @@ const BattlePage = () => {
     }
   };
 
+  const handleRestart = () => {
+    setPokemon1(null);
+    setPokemon2(null);
+    setBattleLog([]);
+    setIsShaking1(false);
+    setIsShaking2(false);
+    setWinner(null);
+  };
+
   return (
     <div>
-      <h2>Battle</h2>
+      <h1>Battle</h1>
       <div>
         <label>Choose Pokémon 1:</label>
         <select onChange={(e) => setPokemon1(pokemonList.find(p => p.id === parseInt(e.target.value)))}>
@@ -93,11 +106,18 @@ const BattlePage = () => {
         )}
       </div>
       <button onClick={handleBattle}>Start Battle</button>
+      <button onClick={handleRestart}>Restart Battle</button>
       <div>
         {battleLog.map((log, index) => (
           <p key={index}>{log}</p>
         ))}
       </div>
+      {winner && (
+        <div className="winner-section">
+          <h3>{winner.name} wins!</h3>
+          <img src={winner.imageUrl} alt={winner.name} className="winner-image" />
+        </div>
+      )}
     </div>
   );
 };

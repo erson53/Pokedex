@@ -150,4 +150,14 @@ video {
   animation-iteration-count: 1;
 }
 
+.winner-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.winner-image {
+  width: 150px;
+  height: auto;
+}
+
 
