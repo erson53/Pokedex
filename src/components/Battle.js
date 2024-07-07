@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import calculateDamage from "../utils/battle";
 
+// Battle-Komponente, um Kämpfe zwischen Pokémon zu simulieren
 const Battle = ({ pokemonList }) => {
   const [pokemon1, setPokemon1] = useState(null);
   const [pokemon2, setPokemon2] = useState(null);
   const [battleLog, setBattleLog] = useState([]);
 
+  // Funktion, um den Kampf zu starten und zu verwalten
   const handleBattle = () => {
     if (pokemon1 && pokemon2) {
       let log = [];
       let hp1 = pokemon1.hp;
       let hp2 = pokemon2.hp;
 
+      // Kampf-Schleife, die so lange läuft, bis ein Pokémon keine HP mehr hat
       while (hp1 > 0 && hp2 > 0) {
         const damageTo2 = calculateDamage(pokemon1, pokemon2);
         hp2 -= damageTo2;
@@ -32,6 +35,7 @@ const Battle = ({ pokemonList }) => {
         );
       }
 
+      // Bestimmt den Gewinner und fügt den Log-Eintrag hinzu
       if (hp1 <= 0) {
         log.push(`${pokemon2.name} wins!`);
       } else {
@@ -47,7 +51,7 @@ const Battle = ({ pokemonList }) => {
       <h2>Battle</h2>
       <div>
         <div>
-          <label>Choose  1:</label>
+          <label>Choose Pokémon 1:</label>
         </div>
         <select
           className="button"

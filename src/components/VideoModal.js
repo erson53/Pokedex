@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import video from "../assets/video.mp4";
 
+// VideoModal-Komponente zur Anzeige eines Videos in einem Modal-Fenster
 const VideoModal = ({ isOpen, onClose }) => {
   const videoRef = useRef(null);
 

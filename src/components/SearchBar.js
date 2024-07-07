@@ -1,10 +1,12 @@
-import React from 'react';
+import React from "react";
 
+// SearchBar-Komponente zur Suche nach Pokémon
 const SearchBar = ({ searchTerm, onSearch }) => {
   return (
     <div className="search-bar">
-        <div>
-      <label htmlFor="search-input">Search Pokémon:</label></div>
+      <div>
+        <label htmlFor="search-input">Search Pokémon:</label>
+      </div>
       <input
         id="search-input"
         type="text"

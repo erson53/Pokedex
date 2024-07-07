@@ -1,6 +1,7 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { getPokemon } from '../utils/api';
+import React, { createContext, useState, useEffect } from "react";
+import { getPokemon } from "../utils/api";
 
+// Erstellen des PokemonContext, um Pokémon-Daten global in der App zu teilen
 export const PokemonContext = createContext();
 
 export const PokemonProvider = ({ children }) => {

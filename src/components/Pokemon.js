@@ -1,5 +1,6 @@
 import React from "react";
 
+// Pokemon-Komponente zur Darstellung eines einzelnen Pokémon
 const Pokemon = ({ pokemon, onSelect }) => {
   const handleSelect = () => {
     onSelect(pokemon);
@@ -12,7 +13,9 @@ const Pokemon = ({ pokemon, onSelect }) => {
         <img src={pokemon.imageUrl} alt={pokemon.name} />
       </div>
       <div className="pokemon-button-container">
-        <button className="button" onClick={handleSelect}>{pokemon.name}</button>
+        <button className="button" onClick={handleSelect}>
+          {pokemon.name}
+        </button>
       </div>
     </div>
   );

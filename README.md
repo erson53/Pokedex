@@ -1,71 +1,71 @@
-# Getting Started with Create React App
+# Pokémon Battle and Pokedex Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Projektbeschreibung
 
-## Available Scripts
+In diesem Projekt haben wir eine Webanwendung entwickelt, die es Benutzern ermöglicht, Pokémon-Schlachten zu simulieren und einen Pokedex zu durchsuchen. Das Hauptziel des Projekts ist es, die Konzepte des funktionalen Programmierens und die Nutzung von Streams zu demonstrieren.
 
-In the project directory, you can run:
+### Themenwahl
 
-### `npm start`
+Wir haben das Thema Pokémon gewählt, weil es weit verbreitet und bei vielen Menschen beliebt ist. Es bietet eine gute Basis, um verschiedene funktionale Programmierkonzepte zu demonstrieren, da die Berechnung von Kampfschäden, Filterungen und Suchen klare und nachvollziehbare Beispiele sind.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Funktionale Programmierkonzepte
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+In unserem Projekt haben wir folgende funktionale Programmierkonzepte integriert:
 
-### `npm test`
+- **Unveränderlichkeit von Daten**: Wir haben `useState` und `useContext` verwendet, um den Zustand der Anwendung zu verwalten und sicherzustellen, dass Daten nicht direkt verändert werden.
+- **Funktionen höherer Ordnung**: Funktionen wie `calculateDamage` und Array-Methoden wie `map`, `filter` und `reduce` wurden häufig verwendet, um die Datenverarbeitung zu implementieren.
+- **Streams**: Die Datenverarbeitung und Filterung in der Pokedex-Komponente zeigt die Anwendung von Streams.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Verwendete Programmiersprache
 
-### `npm run build`
+Wir haben React (JavaScript) für die Entwicklung dieser Anwendung verwendet.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Projektanforderungen
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Code muss kommentiert sein**: Der gesamte Code ist ausführlich kommentiert, um die Funktionsweise der einzelnen Komponenten und Funktionen zu erklären.
+- **Klarer Bezug zu funktionalem Programmieren**: Unser Projekt nutzt funktionale Programmierprinzipien wie Unveränderlichkeit, Funktionen höherer Ordnung und die Nutzung von Streams.
+- **Kreativität und Originalität**: Wir haben eine Anwendung erstellt, die über ein einfaches Beispiel hinausgeht und verschiedene interaktive Elemente und Animationen integriert.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+1. Klone das Repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone <repository-url>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Installiere die Abhängigkeiten:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
 
-## Learn More
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Starte die Anwendung:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   npm start
+   ```
 
-### Code Splitting
+## Verwendung
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Pokedex
 
-### Analyzing the Bundle Size
+1. Auf der Startseite wird eine Liste aller Pokémon angezeigt.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. Benutze die Suchleiste, um nach bestimmten Pokémon zu suchen.
 
-### Making a Progressive Web App
+3. Filtere Pokémon nach Typ über das Dropdown-Menü.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+4. Klicke auf ein Pokémon, um Details anzuzeigen.
 
-### Advanced Configuration
+### Battle
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Navigiere zur Battle-Seite über das Menü.
 
-### Deployment
+2. Wähle zwei Pokémon aus der Dropdown-Liste aus.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+3. Klicke auf "Start Battle", um die Schlacht zu beginnen.
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# Pokedex
+4. Der Kampflog zeigt die Ereignisse der Schlacht in Echtzeit an.

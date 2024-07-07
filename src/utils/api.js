@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const POKEAPI_BASE_URL = 'https://pokeapi.co/api/v2';
 
+// Funktion zum Abrufen von Pokémon-Daten von der API
 export const getPokemon = async () => {
   try {
     const response = await axios.get(`${POKEAPI_BASE_URL}/pokemon?limit=151`);
@@ -20,7 +21,6 @@ export const getPokemon = async () => {
           hp: pokemonDetails.data.stats.find(stat => stat.stat.name === 'hp').base_stat,
           attack: pokemonDetails.data.stats.find(stat => stat.stat.name === 'attack').base_stat,
           defense: pokemonDetails.data.stats.find(stat => stat.stat.name === 'defense').base_stat,
-          // Fügen Sie weitere relevante Kampfstatistiken hinzu
         };
       })
     );

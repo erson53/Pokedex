@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { PokemonContext } from "../context/PokemonContext";
 import calculateDamage from "../utils/battle";
 
+// BattlePage-Komponente, um die Battle-Logik mit zusätzlichen Effekten zu erweitern
 const BattlePage = () => {
   const { pokemonList } = useContext(PokemonContext);
   const [pokemon1, setPokemon1] = useState(null);
@@ -11,6 +12,7 @@ const BattlePage = () => {
   const [isShaking2, setIsShaking2] = useState(false);
   const [winner, setWinner] = useState(null);
 
+  // Funktion, um den Kampf zu starten und visuelle Effekte hinzuzufügen
   const handleBattle = () => {
     if (pokemon1 && pokemon2) {
       let log = [];
@@ -19,6 +21,7 @@ const BattlePage = () => {
       let turn = 0;
       setWinner(null);
 
+      // Funktion, um jeden Schritt des Kampfes zu verarbeiten
       const battleStep = () => {
         if (hp1 <= 0 || hp2 <= 0) {
           if (hp1 <= 0) {
@@ -69,6 +72,7 @@ const BattlePage = () => {
     }
   };
 
+  // Funktion, um den Kampf zurückzusetzen
   const handleRestart = () => {
     setPokemon1(null);
     setPokemon2(null);
@@ -81,7 +85,13 @@ const BattlePage = () => {
   return (
     <div>
       <h1 style={{ marginBottom: "32px" }}>Battle</h1>
-      <div style={{ display: "flex", alignItems: "center", justifyContent:"center" }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <div style={{ display: "grid", paddingInline: "10px" }}>
           <div>
             <label>Choose Pokémon 1:</label>
@@ -146,8 +156,12 @@ const BattlePage = () => {
           )}
         </div>
       </div>
-      <button  className="button" onClick={handleBattle}>Start Battle</button>
-      <button  className="button" onClick={handleRestart}>Restart</button>
+      <button style={{marginInline: "25px", width: "8rem"}} className="button" onClick={handleBattle}>
+        Start
+      </button>
+      <button style={{marginInline: "25px", width: "8rem"}} className="button" onClick={handleRestart}>
+        Restart
+      </button>
       <div>
         {battleLog.map((log, index) => (
           <p key={index}>{log}</p>
