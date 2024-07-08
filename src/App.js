@@ -4,7 +4,7 @@ import Pokedex from "./components/Pokedex";
 import BattlePage from "./components/BattlePage";
 import { PokemonProvider } from "./context/PokemonContext";
 import "./App.css";
-import img from "./assets/pokemon.jpg"
+import img from "./assets/pokemon.jpg";
 
 // Haupt-App-Komponente, die den Router und das Layout definiert
 function App() {
@@ -26,7 +26,7 @@ function App() {
               </li>
               <li style={{ float: "right" }}>
                 <Link className="test" to="/">
-                  <img style={{height: "2rem"}} src={img} />
+                  <img style={{ height: "2rem" }} src={img} />
                 </Link>
               </li>
             </ul>
